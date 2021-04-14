@@ -1,9 +1,8 @@
 # Important
 
-This is a fork of https://github.com/ernw/nmap-parse-output and has two major changes compared to that:
-* new ssh-ports.xslt
-* new http-hostnames-ports.xslt (by pull request https://github.com/ernw/nmap-parse-output/pull/2/commits/5658ed15cd2673432bbd81da401892328cf3a65a)
-
+This is a fork of https://github.com/ernw/nmap-parse-output and has the following major changes compared to that:
+* new check for ssh with ssh-ports and ssh-hostnames-ports
+* output with hostname instead of ip with http-hostnames-ports and tls-hostnames-ports
 
 
 # nmap-parse-output

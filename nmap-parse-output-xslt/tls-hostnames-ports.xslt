@@ -10,7 +10,14 @@
     <xsl:strip-space elements="*" />
     <!-- Reliable SSL/TLS detection: Sometimes only one of the three TLS detection attributes is set. -->
     <xsl:template match="/nmaprun/host/ports/port[state/@state='open' and (service/@tunnel='ssl' or script[@id='ssl-cert'] or script[@id='ssl-date'])]">
-        <xsl:value-of select="../../hostnames/hostname/@name"/>
+        <xsl:choose>
+            <xsl:when test="../../hostnames/hostname/@name != ''">
+                <xsl:value-of select="../../hostnames/hostname/@name" />
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="../../address/@addr" />
+            </xsl:otherwise>
+        </xsl:choose>
         <xsl:text>:</xsl:text>
         <xsl:value-of select="@portid"/>
         <xsl:text>

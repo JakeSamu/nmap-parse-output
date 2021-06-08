@@ -6,7 +6,7 @@ _nmap-parse-output_completions()
   if [ -h "$NPO_SCRIPT" ]; then
     local NPO_SCRIPT="$(readlink "$NPO_SCRIPT")"
   fi
-  local NMAP_PARSE_OUTPUT_DIR="$( dirname "$NPO_SCRIPT" )/nmap-parse-output-xslt"
+  local NMAP_PARSE_OUTPUT_DIR="$(find ~ -name '_nmap-parse-output' -printf "%h\n" 2>/dev/null)/nmap-parse-output-xslt"
   
   if [ -n "$ZSH_VERSION" ]; then
     # ZSH
